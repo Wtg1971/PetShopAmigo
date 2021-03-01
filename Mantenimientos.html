@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
     <link href="css/Estilos.css" rel="stylesheet" />
@@ -44,7 +45,7 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input id="txtBuscar" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button id="btnBuscar" name="btnBuscar" class="btn btnProductos btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        <button id="btnBuscar" name="btnBuscar" class="btn btnBuscar btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -64,11 +65,11 @@
             <form id="forms" name="forms" class="form-inline form-group">
                 <div>
                     <label for="inputIdMas">Código:</label>
-                    <input name="CodigoMascota" id="CodigoMascota" class="form-control mr-sm-2" required type="search" placeholder="Código" minlength="1" maxlength="5">
+                    <input name="CodigoMascota" id="codigo" class="form-control mr-sm-2" required type="search" placeholder="Código" minlength="1" maxlength="5">
                 </div>
                 <div>
                     <label for="tipoMascota">Tipo de mascota: </label>
-                    <select name="tipoMascota" title="Tipo de mascota" class="form-control mr-sm-2" id="tipoMascota" required onkeypress='return event.charCode >= 48 && event.charCode<= 57' minlength="5" maxlength="30">
+                    <select name="tipoMascota" title="Tipo de mascota" class="form-control mr-sm-2 tipo" id="tipo" required onkeypress='return event.charCode >= 48 && event.charCode<= 57' minlength="5" maxlength="30">
                         <option value="Perro">Perro</option>
                         <option value="Gato">Gato</option>
                         <option value="Pez">Pez</option>
@@ -82,34 +83,34 @@
                 </div>
                 <div>
                     <label for="inputRaza">Raza:</label>
-                    <input name="RazaMascota" id="Raza" class="form-control mr-sm-2" required type="search" placeholder="Raza" minlength="4" maxlength="30">
+                    <input name="RazaMascota" id="raza" class="form-control mr-sm-2 raza" required type="search" placeholder="Raza" minlength="4" maxlength="30">
                 </div>
                 <div>
-                    <label for="ImagenProd">Cargar imagen:</label>
-                    <input class="form-control mr-sm-2" type="file" required placeholder="Seleccione la imagen a cargar" name="imagenProducto" onchange="readURL(this)" id="imagenProducto">
+                    <label for="imagen">Cargar imagen:</label>
+                    <input class="form-control mr-sm-2" type="file" required placeholder="Seleccione la imagen a cargar" name="imagen" onchange="readURL(this)" id="imagen">
                 </div>
                 <div>
                     <label for="inputPrecio">Precio:</label>
-                    <input id="precio" class="form-control mr-sm-2" type="search" required placeholder="Precio" aria-label="Search" onkeypress='return event.charCode >= 48 && event.charCode<= 57' minlength="4" maxlength="7">
+                    <input id="precio" class="form-control mr-sm-2 precio" type="search" required placeholder="Precio" aria-label="Search" onkeypress='return event.charCode >= 48 && event.charCode<= 57' minlength="2" maxlength="7">
                 </div>
                 <div>
                     <label for="inputDescripcion">Descripción:</label>
-                    <input id="descripcion" class="form-control mr-sm-2" type="search" required placeholder="Descripción" aria-label="Search" minlength="10" maxlength="50">
+                    <input id="informacion" class="form-control mr-sm-2 informacion" type="search" required placeholder="Descripción" aria-label="Search" minlength="10" maxlength="50">
                 </div>
-                <button id="btnAgregar" class="btn btnProductos my-2 my-sm-0" type="button" style=""><strong>Insertar</strong></button>
+                <button id="btnAgregar" class="btn btnAgregar my-2 my-sm-0" type="button"><strong>Insertar</strong></button>
             </form>
         </div>
-        <h1>En proceso</h1>
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        <!--       <h1>En proceso</h1>
+           <div class="progress">
+               <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 
-        </div>
+           </div>-->
 
         <hr />
         <br /><br />
-        <div id="listaProductos" class="row catalogo card-columns border-info">
-        
-            <br /><br />
+        <div id="lsProductos" class="lsProductos card-columns border-info">
+
+
         </div>
     </main>
     <footer class="pie">
@@ -118,17 +119,16 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../Mascotas/js/jsAdministra.js"></script>
+    <script src="../Mascotas/js/cargarMascotas.js"></script>
     
-
-    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
-
+    
+        
 
 
 </body>
-</html>
+    </html>

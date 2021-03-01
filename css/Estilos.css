@@ -29,6 +29,9 @@ p{
     line-height:1.8;
     margin-bottom:0;
 }
+#lsProductos {
+    width: 95% !important;
+}
 
 .topmargin-xs{margin-top:30px;}
 .topmargin-sm{margin-top:50px;}
@@ -432,10 +435,16 @@ p{
     padding:15px;
 }
 
-#btnAgregar {
+#btnAgregar{
     background-color: chocolate;
     color:white;
     font-size:15px;
+}
+
+.btn {
+    background: chocolate;
+    color: white;
+    font-size: 15px;
 }
 
 .contenidoBlog {
@@ -501,8 +510,22 @@ p{
     width: 800px;
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
+.card-text{
+    font-size:20px;
+    color:black;
+}
 
+.alert{
+    background-color:white;
+
+}
+.card-title{
+    color:black;
+    text-align:center;
+    background:#84cba0;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
     h1 {
         font-size: 50px;
         line-height: normal;
